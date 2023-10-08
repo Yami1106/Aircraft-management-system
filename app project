@@ -1,0 +1,1089 @@
+#Importing all the necessary modules
+import time
+import tkinter as tk
+from tkinter import *
+from tkinter import messagebox
+import tkinter.ttk as ttk
+import threading
+from random import randint
+from time import sleep
+import webbrowser
+
+
+print()
+print()
+print()
+str="******WELCOME TO AIRCRAFT MANAGEMENT*******"
+for char in str:
+    print(char,end='')
+    sleep(.0009)
+print()
+print()
+str1='Loading ....'
+for char in str1:
+    print(char,end='')
+    sleep(.003)
+print()
+
+ssss='please wait sir'
+for cha in ssss:
+    print(cha,end='')
+    sleep(.05)
+    
+print()
+time.sleep(0.004)
+print('Loaded succesfully')
+time.sleep(0.02)
+print()
+print()
+print('Thank You For Waiting Sir')
+print()
+print("Type the entry password sir")
+def fnd():
+    ast=Tk()
+    ast.title('ENTRY PAGE')
+    def sh():
+        e1.delete(0,'end')
+    b=Button(ast,text='RESET',command=sh,bd=5,bg='Lemonchiffon')
+    b.place(x=350,y=105)
+    label3=Label(ast,text="ENTRY PASSWORD",font=['Algerian','30','underline','bold'],bg='gold')
+    label3.place(x=80,y=0)
+    e1=Entry(ast,text = "",show = '*',font='20')
+    e1.place(x=100,y=105)
+    print()
+    print()
+
+    def bos():
+        if e1.get()=='vishal1234':
+            #ast.destroy()
+            
+            str3='Start your work sir!!!!'
+            ast.destroy()
+            for ch in str3:
+                print(ch,end='')
+                sleep(.0005)
+            time.sleep(0.007)
+            o=Tk()
+
+
+            lbl_label=Label(o,text='AIRCRAFT MANAGEMENT SYSTEM',font=['Algerian','28'],bg='lemonchiffon')
+            lbl_label.place(x=8,y=20)
+
+            def star():
+                #o.destroy()
+                #***ESTABLISHING CONNECTION***
+                #Importing mysql.connector for establishing connection with sql
+                import mysql.connector as mc
+                con=mc.connect(host="localhost",user="root",passwd="vishal1234",database="vishal")     
+                cur=con.cursor()
+                #****Creating firstWindow***
+                wind=Tk()
+                def pilot():
+                    #wind.destroy()
+                    windo=Tk()
+                    def login():
+                        if (((name_entry.get())=="Pilot" or (name_entry.get())=="PILOT"or (name_entry.get())=="pilot"or (name_entry.get())=="PILOT") )and ((passw_entry.get())=='180018343'):
+                            messagebox.showinfo("Information","Welcome"+' '''+nam_entry.get()+' '''+"Connected to database successfully")
+                            windo.destroy()
+                            a=Tk()
+                #**INSERT FUNCTION*
+                            def insert():
+                                b=Tk()
+                                def reset():
+                                    i.delete(0,END)
+                                    j.delete(0,END)
+                                    k.delete(0,END)
+                                    l.delete(0,END)
+                                    m.delete(0,END)
+                                    n.delete(0,END)
+                                    p.delete(0,END)
+                                    q.delete(0,END)
+                                def back():
+                                    b.destroy()
+                                def submit():
+                                    sql="insert into project values(%s,%s,%s,%s,%s,%s,%s,%s)"
+                                    values=i.get(),j.get(),k.get(),l.get(),m.get(),n.get(),p.get(),q.get()
+                                    cur.execute(sql,values)
+                                    con.commit()
+                                    messagebox.showinfo("Information","Successfully inserted flight details sir")
+                                          
+                                lbl_label=Label(b,text='DATE',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=50)
+                                lbl_label=Label(b,text='REGISTRATION_NO',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=80)
+                                lbl_label=Label(b,text='PILOT_NAME',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=110)
+                                lbl_label=Label(b,text='AIRCRAFT_TYPE',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=140)
+                                lbl_label=Label(b,text='AIRCRAFT_IDENT',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=170)
+                                lbl_label=Label(b,text='FLIGHT_FROM',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=200)
+                                lbl_label=Label(b,text='FLIGHT_TO',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=230)
+                                lbl_label=Label(b,text='REMARKS_AND_ENDORSEMENTS',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=260)
+                                i = Entry(b,text = "",font='16') 
+                                i.place(x=350,y=50)
+                                j = Entry(b,text = "",font='16') 
+                                j.place(x=350,y=80)
+                                k = Entry(b,text = "",font='16') 
+                                k.place(x=350,y=110)
+                                l = Entry(b,text = "",font='16') 
+                                l.place(x=350,y=140)
+                                m= Entry(b,text = "",font='16') 
+                                m.place(x=350,y=170)
+                                n = Entry(b,text = "",font='16') 
+                                n.place(x=350,y=200)
+                                p= Entry(b,text = "",font='16') 
+                                p.place(x=350,y=230)
+                                q= Entry(b,text = "",font='16')
+                                q.place(x=350,y=260)
+                                login_btn=Button(b,text = 'SUBMIT',command=submit,bd=1) 
+                                login_btn.place(x=500,y=435)
+                                u=Button(b,text = 'BACK',command=back,bd=1) 
+                                u.place(x=200,y=380)
+                                py=Button(b,text = 'RESET',command=reset,bd=1) 
+                                py.place(x=100,y=380)
+                                            
+                                b.title("INSERT NEW FLIGHT DETAILS")
+                                b.geometry('600x500+300+50')
+                                b.config(bg="black")
+                                b.mainloop()
+                #***UPDATE FUNCTION***
+                            def update():
+                                root=Tk()
+                                def back():
+                                    root.destroy()
+                                def fetch():
+                                    sql="select * from project where Registration_no='%s'"%(e2.get())
+                                    cur.execute(sql)
+                                    rows=cur.fetchall()
+                                    if len(rows)!=0:
+                                        for row in rows:
+                                            e1.insert('end',row[0])
+                                            e3.insert('end',row[2])
+                                            e4.insert('end',row[3])
+                                            e5.insert('end',row[4])
+                                            e6.insert('end',row[5])
+                                            e7.insert('end',row[6])
+                                            e8.insert('end',row[7])
+                                    else:
+                                        messagebox.showerror(parent=root,title="Error",message="No records found with Billing ID you entered")
+
+                                def submit():
+                                    sql='update project set Date="%s",Pilot_name="%s",Aircraft_type="%s",Aircraft_ident="%s",Flight_from="%s",Flight_to="%s",Remarks_and_Endorsements="%s" where Registration_no="%s"'%(e1.get(),e3.get(),e4.get(),e5.get(),e6.get(),e7.get(),e8.get(),e2.get())
+                                    cur.execute(sql)
+                                    e1.delete(0,END)
+                                    e2.delete(0,END)
+                                    e3.delete(0,END)
+                                    e4.delete(0,END)
+                                    e5.delete(0,END)
+                                    e6.delete(0,END)
+                                    e7.delete(0,END)
+                                    e8.delete(0,END)
+                                    messagebox.showinfo(parent=root,title="SUCCESS",message="Record updated successfully")
+                                    con.commit()
+
+                                label1=Label(root,text="UPDATING FLIGHT DETAILS")
+                                label1.place(x=100,y=50)
+                                label2=Label(root,text="DATE",font=['Algerian','10'])
+                                label2.place(x=100,y=110)
+                                label3=Label(root,text="REGISTRATION_NO",font=['Algerian','10'])
+                                label3.place(x=100,y=80)
+                                label4=Label(root,text="PILOT_NAME",font=['Algerian','10'])
+                                label4.place(x=100,y=140)
+                                label5=Label(root,text="AIRCRAFT_TYPE",font=['Algerian','10'])
+                                label5.place(x=100,y=170)
+                                label6=Label(root,text="AIRCRAFT_IDENT",font=['Algerian','10'])
+                                label6.place(x=100,y=200)
+                                label7=Label(root,text="FLIGHT_FROM",font=['Algerian','10'])
+                                label7.place(x=100,y=230)
+                                label12=Label(root,text="FLIGHT_TO",font=['Algerian','10'])
+                                label12.place(x=100,y=260)
+                                label13=Label(root,text="REMARKS AND ENDORSEMENTS",font=['Algerian','10'])
+                                label13.place(x=100,y=290)
+                                        
+                                e1=Entry(root,font='16')
+                                e1.place(x=350,y=110)
+                                e2=Entry(root,font='16')
+                                e2.place(x=350,y=80)
+                                e3=Entry(root,font='16')
+                                e3.place(x=350,y=140)
+                                e4=Entry(root,font='16')
+                                e4.place(x=350,y=170)
+                                e5=Entry(root,font='16')
+                                e5.place(x=350,y=200)
+                                e6=Entry(root,font='16')
+                                e6.place(x=350,y=230)
+                                e7=Entry(root,font='16')
+                                e7.place(x=350,y=260)
+                                e8=Entry(root,font='16')
+                                e8.place(x=350,y=290)
+                                l=Button(root,text = 'SUBMIT',command=submit,bd=1) 
+                                l.place(x=500,y=435)
+                                t=Button(root,text = 'FETCH',command=fetch,bd=1) 
+                                t.place(x=500,y=380)
+                                j=Button(root,text = 'BACK',command=back,bd=1) 
+                                j.place(x=200,y=380)
+                                root.title("UPDATING FLIGHT DETAILS")
+                                root.geometry("600x500+300+50")
+                                root.config(bg="black")
+                                root.mainloop()
+                #***DELETE FUNCTION***
+                            def dc():
+                                c=Tk()
+                                def back():
+                                    c.destroy()
+                                def submit():
+                                    sql='delete from project where Registration_no="%s"'%(dc_ent.get())
+                                    cur.execute(sql)
+                                    con.commit()
+                                    messagebox.showinfo("Information","Command executed successfully")
+
+                                cn_lbl=Label(c, text = 'Delete by Registration_no ',font='14',bg='gold') 
+                                cn_lbl.place(x=130,y=50)
+                                dcn_lbl=Label(c, text ='Registration_no : ',font='14',bg='white') 
+                                dcn_lbl.place(x=30,y=115)
+                                dc_ent=Entry(c,text="")
+                                dc_ent.place(x=225,y=120)
+                                sub_btn=Button(c,text="Submit",command=submit,bg='white',bd=10) 
+                                sub_btn.place(x=300,y=210)
+                                j=Button(c,text = 'BACK',command=back,bd=1) 
+                                j.place(x=200,y=380)
+                                c.geometry("400x300+350+150")
+                                c.title("Delete from project by Registration_no")
+                                c.resizable(0,0)
+                                c.config(bg='black')
+                                c.mainloop()
+                              
+                            def select():
+                                root=Tk()
+                                def back():
+                                    root.destroy()
+                                def fetch():
+                                    sql="select * from project where Registration_no='%s'"%(e2.get())
+                                    cur.execute(sql)
+                                    rows=cur.fetchall()
+                                    if len(rows)!=0:
+                                        for row in rows:
+                                            e1.insert('end',row[0])
+                                            e3.insert('end',row[2])
+                                            e4.insert('end',row[3])
+                                            e5.insert('end',row[4])
+                                            e6.insert('end',row[5])
+                                            e7.insert('end',row[6])
+                                            e8.insert('end',row[7])
+                                label2=Label(root,text="DATE",font=['Algerian','10'])
+                                label2.place(x=100,y=110)
+                                label3=Label(root,text="REGISTRATION_NO",font=['Algerian','10'])
+                                label3.place(x=100,y=80)
+                                label4=Label(root,text="PILOT_NAME",font=['Algerian','10'])
+                                label4.place(x=100,y=140)
+                                label5=Label(root,text="AIRCRAFT_TYPE",font=['Algerian','10'])
+                                label5.place(x=100,y=170)
+                                label6=Label(root,text="AIRCRAFT_IDENT",font=['Algerian','10'])
+                                label6.place(x=100,y=200)
+                                label7=Label(root,text="FLIGHT_FROM",font=['Algerian','10'])
+                                label7.place(x=100,y=230)
+                                label12=Label(root,text="FLIGHT_TO",font=['Algerian','10'])
+                                label12.place(x=100,y=260)
+                                label13=Label(root,text="REMARKS AND ENDORSEMENTS",font=['Algerian','10'])
+                                label13.place(x=100,y=290)
+                                        
+                                e1=Entry(root,font='16')
+                                e1.place(x=350,y=110)
+                                e2=Entry(root,font='16')
+                                e2.place(x=350,y=80)
+                                e3=Entry(root,font='16')
+                                e3.place(x=350,y=140)
+                                e4=Entry(root,font='16')
+                                e4.place(x=350,y=170)
+                                e5=Entry(root,font='16')
+                                e5.place(x=350,y=200)
+                                e6=Entry(root,font='16')
+                                e6.place(x=350,y=230)
+                                e7=Entry(root,font='16')
+                                e7.place(x=350,y=260)
+                                e8=Entry(root,font='16')
+                                e8.place(x=350,y=290)
+                                t=Button(root,text = 'FETCH',command=fetch,bd=1) 
+                                t.place(x=500,y=380)
+                                j=Button(root,text = 'BACK',command=back,bd=1) 
+                                j.place(x=100,y=380)
+                                root.title("UPDATING FLIGHT DETAILS")
+                                root.geometry("600x500+300+50")
+                                root.config(bg="black")
+                                root.mainloop()
+                                            
+                            lbl_label=Label(a,text='PILOT EDITING PAGE',font=['Algerian','40'],bg='lemonchiffon')
+                            lbl_label.place(x=400,y=20)
+                            a1=Button(a,text = 'Insert the flight details',font=['Arial','20'],command=insert,bd=10) 
+                            a1.place(x=100,y=200)
+                            a2=Button(a,text = 'Update the flight details',font=['Arial','20'],command=update,bd=10) 
+                            a2.place(x=100,y=400)
+                            a3=Button(a,text = 'Select the flight details',font=['Arial','20'],command=select,bd=10) 
+                            a3.place(x=850,y=200)
+                            a4=Button(a,text = 'Delete the flight details',font=['Arial','20'],command=dc,bd=10) 
+                            a4.place(x=850,y=400)
+                            #########################################################################
+                            a.resizable(0,0)
+                            a.geometry('1270x1000+0+0')
+                            a.title("AIRCRAFT MANAGEMENT SYSTEM")
+                            a.config(bg="springgreen")
+                            a.mainloop()
+########################################################################################################
+                        if ((name_entry.get()) =="") and ((passw_entry.get()) ==""):
+                            messagebox.showinfo("Error","Please Enter your Username and Password")
+                        elif ((name_entry.get()) =="") :
+                            messagebox.showinfo("Error","Please enter your Username")
+                        elif ((passw_entry.get()) =="") :
+                           messagebox.showinfo("Error","Please enter your Password")
+                        elif ((passw_entry.get()) !='180018343') :
+                            messagebox.showinfo("Error","The Password you Entered is Incorrect")
+                        elif ((name_entry.get()) != "Pilot"):
+                            messagebox.showinfo("Error","The Username you Entered does not Exist")
+                    
+                    lbl_label=Label(windo,text='PILOT LOGIN PAGE',font=['Algerian','35','underline','bold'],bg='lemon chiffon')
+                    lbl_label.place(x=120,y=20)
+                
+                    def web2():
+                        so=messagebox.askyesno("Confirm","Do you have Internet connection?")
+                        if  so>0:
+                            webbrowser.open('https://epicflightacademy.com/airline-pilot-salary/')
+                        else:
+                            return
+                    login_btn=Button(windo,text = '$ SALARY CHECKER $ ',font='20',command=web2,bd=5,bg='lemonchiffon3') 
+                    login_btn.place(x=300,y=435)
+                    
+                    name_label = Label(windo, text = 'ENTER DESIGNATION : ', font=['Arial','15','bold'],bg='snow') 
+                    name_label.place(x=100,y=250)
+                    name_entry = Entry(windo,text = "",font='20') 
+                    name_entry.place(x=350,y=250)
+                    nam_label = Label(windo, text = 'NAME(WITH INITIAL) : ',font=['Arial','15','bold'],bg='snow') 
+                    nam_label.place(x=100,y=150)
+                    nam_entry = Entry(windo,text = "",font='20') 
+                    nam_entry.place(x=350,y=150)
+                    passw_label = Label(windo,text = 'OFFICIAL PASSWORD : ',font=['Arial','15','bold'],bg='snow') 
+                    passw_label.place(x=100,y=350)
+                    passw_entry=Entry(windo,text = "",show = '*',font='20')
+                    passw_entry.place(x=350,y=350)
+
+                    
+                    login_btn=Button(windo,text = 'LOGIN HERE',font='20',command=login,bd=5) 
+                    login_btn.place(x=525,y=435)
+                    def logi():
+                        if passw_entry.get()=='':
+                            messagebox.showinfo("Information","Password is empty sir.\nPlease enter the password.")
+                        else:
+                            messagebox.showinfo("Information","Password that you had entered is "+" ' "+  passw_entry.get()+" ' ")
+                           
+                    login_btn=Button(windo,text = 'show password \n CAUTION: click only when required',font='15',command=logi,bd=5) 
+                    login_btn.place(x=10,y=435)
+                    windo.title("WELCOME TO AIRCRAFT MANAGEMENT SYSTEM")
+                    windo.geometry("650x550+300+50")
+                    windo.resizable(0,0)
+                    windo.config(bg='Royalblue')
+                    windo.mainloop()
+                def CEO():
+                    wind.destroy()
+                    window=Tk()
+                    def login():        
+                        if (((name_entry.get())=="CEO" )or ((name_entry.get())=="ceo" )or (name_entry.get())=="Ceo") and ((passw_entry.get())=='21082003'):
+                        
+                            messagebox.showinfo("Information","Connected to database successfully")
+                            window.destroy()
+                            a=Tk()
+                            def insert():
+                                b=Tk()
+                                def reset():
+                                    i.delete(0,END)
+                                    j.delete(0,END)
+                                    k.delete(0,END)
+                                    l.delete(0,END)
+                                    m.delete(0,END)
+                                    n.delete(0,END)
+                                    p.delete(0,END)
+                                    q.delete(0,END)
+                                def submit():
+                                    sql="insert into project values(%s,%s,%s,%s,%s,%s,%s,%s)"
+                                    values=i.get(),j.get(),k.get(),l.get(),m.get(),n.get(),p.get(),q.get()
+                                    cur.execute(sql,values)
+                                    con.commit()
+                                    messagebox.showinfo("Information","Successfully inserted flight details sir")
+                                          
+                                lbl_label=Label(b,text='DATE',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=50)
+                                lbl_label=Label(b,text='REGISTRATION_NO',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=80)
+                                lbl_label=Label(b,text='PILOT_NAME',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=110)
+                                lbl_label=Label(b,text='AIRCRAFT_TYPE',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=140)
+                                lbl_label=Label(b,text='AIRCRAFT_IDENT',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=170)
+                                lbl_label=Label(b,text='FLIGHT_FROM',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=200)
+                                lbl_label=Label(b,text='FLIGHT_TO',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=230)
+                                lbl_label=Label(b,text='REMARKS_AND_ENDORSEMENTS',font=['Algerian','10'])
+                                lbl_label.place(x=100,y=260)
+                                i = Entry(b,text = "",font='16') 
+                                i.place(x=350,y=50)
+                                j = Entry(b,text = "",font='16') 
+                                j.place(x=350,y=80)
+                                k = Entry(b,text = "",font='16') 
+                                k.place(x=350,y=110)
+                                l = Entry(b,text = "",font='16') 
+                                l.place(x=350,y=140)
+                                m= Entry(b,text = "",font='16') 
+                                m.place(x=350,y=170)
+                                n = Entry(b,text = "",font='16') 
+                                n.place(x=350,y=200)
+                                p= Entry(b,text = "",font='16') 
+                                p.place(x=350,y=230)
+                                q= Entry(b,text = "",font='16')
+                                q.place(x=350,y=260)
+                                py=Button(b,text = 'RESET',command=reset,bd=1) 
+                                py.place(x=100,y=380)
+                                login_btn=Button(b,text = 'SUBMIT',command=submit,bd=1) 
+                                login_btn.place(x=500,y=435)
+                                                                        
+                                b.title("INSERT NEW FLIGHT DETAILS")
+                                b.geometry('650x550+300+50')
+                                b.config(bg="purple1")
+                                b.mainloop()
+
+                            def update():
+                                root=Tk()
+                                def back():
+                                    root.destroy()
+                                def fetch():
+                                    sql="select * from project where Registration_no='%s'"%(e2.get())
+                                    cur.execute(sql)
+                                    rows=cur.fetchall()
+                                    if len(rows)!=0:
+                                        for row in rows:
+                                            e1.insert('end',row[0])
+                                            e3.insert('end',row[2])
+                                            e4.insert('end',row[3])
+                                            e5.insert('end',row[4])
+                                            e6.insert('end',row[5])
+                                            e7.insert('end',row[6])
+                                            e8.insert('end',row[7])
+                                    else:
+                                        messagebox.showerror(parent=c,title="Error",message="No records found with Billing ID you entered")
+
+                                def submit():
+                                    sql='update project set Date="%s",Pilot_name="%s",Aircraft_type="%s",Aircraft_ident="%s",Flight_from="%s",Flight_to="%s",Remarks_and_Endorsements="%s" where Registration_no="%s"'%(e1.get(),e3.get(),e4.get(),e5.get(),e6.get(),e7.get(),e8.get(),e2.get())
+                                    cur.execute(sql)
+                                    e1.delete(0,END)
+                                    e2.delete(0,END)
+                                    e3.delete(0,END)
+                                    e4.delete(0,END)
+                                    e5.delete(0,END)
+                                    e6.delete(0,END)
+                                    e7.delete(0,END)
+                                    e8.delete(0,END)
+                                    messagebox.showinfo(parent=root,title="SUCCESS",message="Record updated successfully")
+                                    con.commit()
+
+                                label1=Label(root,text="UPDATING FLIGHT DETAILS")
+                                label1.place(x=100,y=50)
+                                label2=Label(root,text="DATE",font=['Algerian','10'])
+                                label2.place(x=100,y=110)
+                                label3=Label(root,text="REGISTRATION_NO",font=['Algerian','10'])
+                                label3.place(x=100,y=80)
+                                label4=Label(root,text="PILOT_NAME",font=['Algerian','10'])
+                                label4.place(x=100,y=140)
+                                label5=Label(root,text="AIRCRAFT_TYPE",font=['Algerian','10'])
+                                label5.place(x=100,y=170)
+                                label6=Label(root,text="AIRCRAFT_IDENT",font=['Algerian','10'])
+                                label6.place(x=100,y=200)
+                                label7=Label(root,text="FLIGHT_FROM",font=['Algerian','10'])
+                                label7.place(x=100,y=230)
+                                label12=Label(root,text="FLIGHT_TO",font=['Algerian','10'])
+                                label12.place(x=100,y=260)
+                                label13=Label(root,text="REMARKS AND ENDORSEMENTS",font=['Algerian','10'])
+                                label13.place(x=100,y=290)
+                                        
+                                e1=Entry(root,font='16')
+                                e1.place(x=350,y=110)
+                                e2=Entry(root,font='16')
+                                e2.place(x=350,y=80)
+                                e3=Entry(root,font='16')
+                                e3.place(x=350,y=140)
+                                e4=Entry(root,font='16')
+                                e4.place(x=350,y=170)
+                                e5=Entry(root,font='16')
+                                e5.place(x=350,y=200)
+                                e6=Entry(root,font='16')
+                                e6.place(x=350,y=230)
+                                e7=Entry(root,font='16')
+                                e7.place(x=350,y=260)
+                                e8=Entry(root,font='16')
+                                e8.place(x=350,y=290)
+                                l=Button(root,text = 'SUBMIT',command=submit,bd=1) 
+                                l.place(x=500,y=435)
+                                t=Button(root,text = 'FETCH',command=fetch,bd=1) 
+                                t.place(x=500,y=380)
+                                j=Button(root,text = 'BACK',command=back,bd=1) 
+                                j.place(x=200,y=380)
+                                root.title("UPDATING FLIGHT DETAILS")
+                                root.geometry("600x500+300+50")
+                                root.config(bg="black")
+                                root.mainloop()
+                       
+                            def dc():
+                                c=Tk()
+                                def submit():
+                                    sql='delete from project where Registration_no="%s"'%(dc_ent.get())
+                                    cur.execute(sql)
+                                    connection.commit()
+                                    messagebox.showinfo("Information","Command executed successfully")
+                                    
+                                cn_lbl=Label(c, text = 'Delete by Registration_no ',font='14',bg='gold') 
+                                cn_lbl.place(x=130,y=50)
+                                dcn_lbl=Label(c, text ='Registration_no : ',font='14',bg='white') 
+                                dcn_lbl.place(x=30,y=115)
+                                dc_ent=Entry(c,text="")
+                                dc_ent.place(x=225,y=120)
+                                sub_btn=Button(c,text="Submit",command=submit,bg='white',bd=2) 
+                                sub_btn.place(x=300,y=210)
+                                c.geometry("400x300+350+150")
+                                c.title("Delete from project by Registration_no")
+                                c.resizable(0,0)
+                                c.config(bg='black')
+                                c.mainloop()
+                            def select():
+                                root=Tk()
+                                def back():
+                                    root.destroy()
+                                def fetch():
+                                    sql="select * from project where Registration_no='%s'"%(e2.get())
+                                    cur.execute(sql)
+                                    rows=cur.fetchall()
+                                    if len(rows)!=0:
+                                        for row in rows:
+                                            e1.insert('end',row[0])
+                                            e3.insert('end',row[2])
+                                            e4.insert('end',row[3])
+                                            e5.insert('end',row[4])
+                                            e6.insert('end',row[5])
+                                            e7.insert('end',row[6])
+                                            e8.insert('end',row[7])
+                                label2=Label(root,text="DATE",font=['Algerian','10'])
+                                label2.place(x=100,y=110)
+                                label3=Label(root,text="REGISTRATION_NO",font=['Algerian','10'])
+                                label3.place(x=100,y=80)
+                                label4=Label(root,text="PILOT_NAME",font=['Algerian','10'])
+                                label4.place(x=100,y=140)
+                                label5=Label(root,text="AIRCRAFT_TYPE",font=['Algerian','10'])
+                                label5.place(x=100,y=170)
+                                label6=Label(root,text="AIRCRAFT_IDENT",font=['Algerian','10'])
+                                label6.place(x=100,y=200)
+                                label7=Label(root,text="FLIGHT_FROM",font=['Algerian','10'])
+                                label7.place(x=100,y=230)
+                                label12=Label(root,text="FLIGHT_TO",font=['Algerian','10'])
+                                label12.place(x=100,y=260)
+                                label13=Label(root,text="REMARKS AND ENDORSEMENTS",font=['Algerian','10'])
+                                label13.place(x=100,y=290)
+                                        
+                                e1=Entry(root,font='16')
+                                e1.place(x=350,y=110)
+                                e2=Entry(root,font='16')
+                                e2.place(x=350,y=80)
+                                e3=Entry(root,font='16')
+                                e3.place(x=350,y=140)
+                                e4=Entry(root,font='16')
+                                e4.place(x=350,y=170)
+                                e5=Entry(root,font='16')
+                                e5.place(x=350,y=200)
+                                e6=Entry(root,font='16')
+                                e6.place(x=350,y=230)
+                                e7=Entry(root,font='16')
+                                e7.place(x=350,y=260)
+                                e8=Entry(root,font='16')
+                                e8.place(x=350,y=290)
+                                t=Button(root,text = 'FETCH',command=fetch,bd=1) 
+                                t.place(x=500,y=380)
+                                j=Button(root,text = 'BACK',command=back,bd=1) 
+                                j.place(x=200,y=380)
+                                root.title("UPDATING FLIGHT DETAILS")
+                                root.geometry("600x500+300+50")
+                                root.config(bg="black")
+                                root.mainloop()
+                            def vish():
+                                e=Tk()
+                                def ins():
+                                    b=Tk()
+                                    def reset():
+                                        i.delete(0,END)
+                                        j.delete(0,END)
+                                        k.delete(0,END)
+                                        l.delete(0,END)
+                                        m.delete(0,END)
+                                        n.delete(0,END)
+                                        p.delete(0,END)
+                                        q.delete(0,END)
+                                    def submit():
+                                        sql="insert into vis values(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                                        values=i.get(),j.get(),k.get(),l.get(),m.get(),n.get(),p.get(),q.get(),r.get()
+                                        cur.execute(sql,values)
+                                        con.commit()
+                                        messagebox.showinfo("Information","Successfully inserted flight details sir")
+                                              
+                                    lbl_label=Label(b,text='LICENSE',font=['Algerian','10'])
+                                    lbl_label.place(x=100,y=50)
+                                    lbl_label=Label(b,text='PILOT_NAME',font=['Algerian','10'])
+                                    lbl_label.place(x=100,y=80)
+                                    lbl_label=Label(b,text='DATE_OF_BIRTH',font=['Algerian','10'])
+                                    lbl_label.place(x=100,y=110)
+                                    lbl_label=Label(b,text='ADDRESS',font=['Algerian','10'])
+                                    lbl_label.place(x=100,y=140)
+                                    lbl_label=Label(b,text='VALIDITY_DATE',font=['Algerian','10'])
+                                    lbl_label.place(x=100,y=170)
+                                    lbl_label=Label(b,text='BLOOD_ GROUP',font=['Algerian','10'])
+                                    lbl_label.place(x=100,y=200)
+                                    lbl_label=Label(b,text='BATCH_NO',font=['Algerian','10'])
+                                    lbl_label.place(x=100,y=230)
+                                    lbl_label=Label(b,text='FATHER_NAME',font=['Algerian','10'])
+                                    lbl_label.place(x=100,y=260)
+                                    lbl_label=Label(b,text='PHONE NO',font=['Algerian','10'])
+                                    lbl_label.place(x=100,y=290)
+                                    i = Entry(b,text = "",font='16') 
+                                    i.place(x=350,y=50)
+                                    j = Entry(b,text = "",font='16') 
+                                    j.place(x=350,y=80)
+                                    k = Entry(b,text = "",font='16') 
+                                    k.place(x=350,y=110)
+                                    l = Entry(b,text = "",font='16') 
+                                    l.place(x=350,y=140)
+                                    m= Entry(b,text = "",font='16') 
+                                    m.place(x=350,y=170)
+                                    n = Entry(b,text = "",font='16') 
+                                    n.place(x=350,y=200)
+                                    p= Entry(b,text = "",font='16') 
+                                    p.place(x=350,y=230)
+                                    q= Entry(b,text = "",font='16')
+                                    q.place(x=350,y=260)
+                                    r= Entry(b,text = "",font='16')
+                                    r.place(x=350,y=290)
+                                    py=Button(b,text = 'RESET',command=reset,bd=1) 
+                                    py.place(x=100,y=380)
+                                    login_btn=Button(b,text = 'SUBMIT',command=submit,bd=1) 
+                                    login_btn.place(x=500,y=435)
+                                    b.title("INSERT NEW FLIGHT DETAILS")
+                                    b.geometry('600x500+300+50')
+                                    b.config(bg="black")
+                                    b.mainloop()
+                                def select():
+                                    my_w = Tk()
+                                    my_w.geometry("1500x700") 
+                                    m='SELECT * FROM vis'
+                                    cur.execute(m)
+                                    f=Frame(my_w,width=450,height=450)
+                                    f.place(x=10,y=60)
+                                    lbl_label=Label(my_w,text='LICENSE',width=15,height=2,font=['Algerian','10'])
+                                    lbl_label.place(x=10,y=20)
+                                    lbl_label=Label(my_w,text='PILOT_NAME',width=15,height=2,font=['Algerian','10'])
+                                    lbl_label.place(x=150,y=20)
+                                    lbl_label=Label(my_w,text='DATE_OF_BIRTH',width=15,height=2,font=['Algerian','10'])
+                                    lbl_label.place(x=290,y=20)
+                                    lbl_label=Label(my_w,text='ADDRESS',width=15,height=2,font=['Algerian','10'])
+                                    lbl_label.place(x=430,y=20)
+                                    lbl_label=Label(my_w,text='VALIDITY_DATE',width=15,height=2,font=['Algerian','10'])
+                                    lbl_label.place(x=570,y=20)
+                                    lbl_label=Label(my_w,text='BLOOD_ GROUP',width=15,height=2,font=['Algerian','10'])
+                                    lbl_label.place(x=710,y=20)
+                                    lbl_label=Label(my_w,text='BATCH_NO',width=15,height=2,font=['Algerian','10'])
+                                    lbl_label.place(x=850,y=20)
+                                    lbl_label=Label(my_w,text='FATHER_NAME',width=15,height=2,font=['Algerian','10'])
+                                    lbl_label.place(x=990,y=20)
+                                    lbl_label=Label(my_w,text='PHONE NO',width=15,height=2,font=['Algerian','10'])
+                                    lbl_label.place(x=1130,y=20)
+                                
+                                    i=0 
+                                    for student in cur:
+                                         for j in range(len(student)):
+                                            e = Entry(f, width=15, bg='white',font='10') 
+                                            e.grid(row=i, column=j)
+                                            e.insert(END, student[j])
+                                         i=i+1
+                                    my_w.config(bg='black')
+                                    my_w.mainloop()
+                                def update1():
+                                    root=Tk()
+                                    def back():
+                                        root.destroy()
+                                    def fetch1():
+                                        sql="select * from vis where LICENSE='%s'"%(e1.get())
+                                        cur.execute(sql)
+                                        rows=cur.fetchall()
+                                        if len(rows)!=0:
+                                            for row in rows:
+                                                e2.insert('end',row[1])
+                                                e3.insert('end',row[2])
+                                                e4.insert('end',row[3])
+                                                e5.insert('end',row[4])
+                                                e6.insert('end',row[5])
+                                                e7.insert('end',row[6])
+                                                e8.insert('end',row[7])
+                                                e9.insert('end',row[8])
+                                       
+                                    def submit():
+                                        sql='update vis set PILOT_NAME="%s",DATE_OF_BIRTH="%s",ADDRESS="%s",VALIDITY_DATE="%s",BLOOD_GROUP="%s",BATCH_NO="%s" ,FATHER_NAME="%s",PHONE_NO="%s"where LICENSE="%s"'%(e2.get(),e3.get(),e4.get(),e5.get(),e6.get(),e7.get(),e8.get(),e9.get(),e1.get())
+                                        cur.execute(sql)
+                                        e1.delete(0,END)
+                                        e2.delete(0,END)
+                                        e3.delete(0,END)
+                                        e4.delete(0,END)
+                                        e5.delete(0,END)
+                                        e6.delete(0,END)
+                                        e7.delete(0,END)
+                                        e8.delete(0,END)
+                                        e9.delete(0,END)
+                                        messagebox.showinfo(parent=root,title="SUCCESS",message="Record updated successfully")
+                                        con.commit()
+
+                                    label1=Label(root,text="UPDATING PILOT DETAILS")
+                                    label1.place(x=100,y=50)
+                                    label21=Label(root,text="LICENSE",font=['Algerian','10'])
+                                    label21.place(x=100,y=80)
+                                    label21=Label(root,text="PILOT_NAME",font=['Algerian','10'])
+                                    label21.place(x=100,y=110)
+                                    label2=Label(root,text="DATE_OF_BIRTH",font=['Algerian','10'])
+                                    label2.place(x=100,y=140)
+                                    label3=Label(root,text="ADDRESS",font=['Algerian','10'])
+                                    label3.place(x=100,y=170)
+                                    label4=Label(root,text="VALIDITY_DATE",font=['Algerian','10'])
+                                    label4.place(x=100,y=200)
+                                    label5=Label(root,text="BLOOD_GROUP",font=['Algerian','10'])
+                                    label5.place(x=100,y=230)
+                                    label6=Label(root,text="BATCH_NO",font=['Algerian','10'])
+                                    label6.place(x=100,y=260)
+                                    label7=Label(root,text="FATHER_NAME",font=['Algerian','10'])
+                                    label7.place(x=100,y=290)
+                                    label12=Label(root,text="PHONE NO",font=['Algerian','10'])
+                                    label12.place(x=100,y=320)
+                                
+                                            
+                                    e1=Entry(root,font='16')
+                                    e1.place(x=350,y=80)
+                                    e2=Entry(root,font='16')
+                                    e2.place(x=350,y=110)
+                                    e3=Entry(root,font='16')
+                                    e3.place(x=350,y=140)
+                                    e4=Entry(root,font='16')
+                                    e4.place(x=350,y=170)
+                                    e5=Entry(root,font='16')
+                                    e5.place(x=350,y=200)
+                                    e6=Entry(root,font='16')
+                                    e6.place(x=350,y=230)
+                                    e7=Entry(root,font='16')
+                                    e7.place(x=350,y=260)
+                                    e8=Entry(root,font='16')
+                                    e8.place(x=350,y=290)
+                                    e9=Entry(root,font='16')
+                                    e9.place(x=350,y=320)
+                                    
+                                    l=Button(root,text = 'SUBMIT',command=submit,bd=1) 
+                                    l.place(x=500,y=435)
+                                    t=Button(root,text = 'FETCH',command=fetch1,bd=1) 
+                                    t.place(x=500,y=380)
+                                    j=Button(root,text = 'BACK',command=back,bd=1) 
+                                    j.place(x=200,y=380)
+                                    root.title("UPDATING FLIGHT DETAILS")
+                                    root.geometry("600x500+300+50")
+                                    root.config(bg="black")
+                                    root.mainloop()
+                                a3=Button(e,text = 'Insert New Pilot Details',command=ins,bd=2) 
+                                a3.place(x=100,y=250)
+                                a4=Button(e,text = 'See all Pilot details',command=select,bd=2) 
+                                a4.place(x=100,y=300)
+                                a4=Button(e,text = "Update Pilot's personal details",command=update1,bd=2) 
+                                a4.place(x=100,y=350)
+                                e.geometry('600x500+300+50')
+                                e.title("AIRCRAFT MANAGEMENT SYSTEM")
+                                e.config(bg="black")
+                                e.mainloop()
+                            lbl_label=Label(a,text='CEO EDITING PAGE',font=['Algerian','40'],bg='lemonchiffon')
+                            lbl_label.place(x=400,y=20)
+                            a1=Button(a,text = 'Insert the flight details',font=['Arial','20'],command=insert,bd=10) 
+                            a1.place(x=100,y=200)
+                            a2=Button(a,text = 'Update the flight details',font=['Arial','20'],command=update,bd=10) 
+                            a2.place(x=100,y=400)
+                            a3=Button(a,text = 'Select the flight details',font=['Arial','20'],command=select,bd=10) 
+                            a3.place(x=850,y=200)
+                            a4=Button(a,text = 'Delete the flight details',font=['Arial','20'],command=dc,bd=10) 
+                            a4.place(x=850,y=400)
+                            pil_btn=Button(a,text = 'See Pilot \n details Here',font=['Arial','20'],command=vish,bd=10,width=16,height=4) 
+                            pil_btn.place(x=500,y=420)
+                            a.geometry('1270x1000+0+0')
+                            a.title("AIRCRAFT MANAGEMENT SYSTEM")
+                            a.config(bg="black")
+                            a.mainloop()
+
+                        elif ((name_entry.get()) =="") and ((passw_entry.get()) ==""):
+                            messagebox.showerror("Error","Please Enter your Username and Password")
+                        elif ((name_entry.get()) =="") :
+                            messagebox.showinfo("Error","Please enter your Username")
+                        elif ((passw_entry.get()) =="") :
+                           messagebox.showinfo("Error","Please enter your Password")
+                        elif ((passw_entry.get()) !='21082003') :
+                            messagebox.showinfo("Error","The Password you Entered is Incorrect")
+                        elif ((name_entry.get()) != "CEO" ):
+                            messagebox.showinfo("Error","The Username you Entered does not Exist")  
+
+                    lbl_label=Label(window,text='CEO LOGIN PAGE',font=['Algerian','35','underline','bold'],bg='lemon chiffon')
+                    lbl_label.place(x=150,y=20)
+                    name_label = Label(window, text = 'ENTER DESIGNATION : ',font=['Arial','15','bold'],bg='snow') 
+                    name_label.place(x=100,y=250)
+                    name_entry = Entry(window,text = "",font='20') 
+                    name_entry.place(x=350,y=250)
+                    nam_label = Label(window, text = 'NAME(WITH INITIAL) : ',font=['Arial','15','bold'],bg='snow') 
+                    nam_label.place(x=100,y=150)
+                    nam_entry = Entry(window,text = "",font='20') 
+                    nam_entry.place(x=350,y=150)
+                    passw_label = Label(window,text = 'OFFICIAL PASSWORD : ',font=['Arial','15','bold'],bg='snow') 
+                    passw_label.place(x=100,y=350)
+                    passw_entry=Entry(window,text = "",show = '*',font='16')
+                    passw_entry.place(x=350,y=350)
+
+                    
+                    login_btn=Button(window,text = 'LOGIN HERE',font='20',command=login,bd=5) 
+                    login_btn.place(x=500,y=435)
+                    def logi():
+                        if passw_entry.get()=='':
+                            messagebox.showinfo("Information","Password is empty sir.\nPlease enter the password.")
+                        else:
+                            messagebox.showinfo("Information","Password that you had entered is "+" ' "+  passw_entry.get()+" ' ")
+
+                    login_btn=Button(window,text = 'show password \n CAUTION: click only when required',font='20',command=logi,bd=5) 
+                    login_btn.place(x=50,y=435)
+                    window.title("WELCOME TO AIRCRAFT MANAGEMENT SYSTEM")
+                    window.geometry("650x550+300+50")
+                    window.resizable(0,0)
+                    window.config(bg='black')
+                    window.mainloop()
+                def np():
+                    window=Tk()
+
+                    window.title("WELCOME TO AIRCRAFT MANAGEMENT SYSTEM")
+                    window.geometry("650x550+300+50")
+                    window.resizable(0,0)
+                    window.config(bg='black')
+                    window.mainloop()
+                            
+                pil_btn=Button(wind,text = 'IF YOU ARE PILOT \n LOGIN HERE',font=['Lucida Calligraphy',10,'bold'],command=pilot,bd=1,width=16,height=4) 
+                pil_btn.place(x=250,y=150)
+                pil_btn=Button(wind,text = 'IF YOU ARE CEO \n LOGIN HERE',font=['Lucida Calligraphy',10,'bold'],command=CEO,bd=1,width=16,height=4) 
+                pil_btn.place(x=250,y=250)
+
+                def pilotlogin():
+                    s=Tk()
+                    def details():
+                         b=Tk()
+                         def entry():
+                             sql="insert into pilot values(%s,%s,%s,%s,%s,%s,%s,%s)"
+                             values=i.get(),j.get(),k.get(),l.get(),m.get(),n.get(),p.get(),q.get()
+                             cur.execute(sql,values)
+                             con.commit()
+                             messagebox.showinfo("Information","Successfully inserted flight details sir")
+                                      
+                         lbl_label=Label(b,text='DATE',font=['Algerian','10'])
+                         lbl_label.place(x=100,y=50)
+                         lbl_label=Label(b,text='REGISTRATION_NO',font=['Algerian','10'])
+                         lbl_label.place(x=100,y=80)
+                         lbl_label=Label(b,text='PILOT_NAME',font=['Algerian','10'])
+                         lbl_label.place(x=100,y=110)
+                         lbl_label=Label(b,text='AIRCRAFT_TYPE',font=['Algerian','10'])
+                         lbl_label.place(x=100,y=140)
+                         lbl_label=Label(b,text='AIRCRAFT_IDENT',font=['Algerian','10'])
+                         lbl_label.place(x=100,y=170)
+                         lbl_label=Label(b,text='FLIGHT_FROM',font=['Algerian','10'])
+                         lbl_label.place(x=100,y=200)
+                         lbl_label=Label(b,text='FLIGHT_TO',font=['Algerian','10'])
+                         lbl_label.place(x=100,y=230)
+                         lbl_label=Label(b,text='REMARKS_AND_ENDORSEMENTS',font=['Algerian','10'])
+                         lbl_label.place(x=100,y=260)
+                         i = Entry(b,text = "",font='16') 
+                         i.place(x=350,y=50)
+                         j = Entry(b,text = "",font='16') 
+                         j.place(x=350,y=80)
+                         k = Entry(b,text = "",font='16') 
+                         k.place(x=350,y=110)
+                         l = Entry(b,text = "",font='16') 
+                         l.place(x=350,y=140)
+                         m= Entry(b,text = "",font='16') 
+                         m.place(x=350,y=170)
+                         n = Entry(b,text = "",font='16') 
+                         n.place(x=350,y=200)
+                         p= Entry(b,text = "",font='16') 
+                         p.place(x=350,y=230)
+                         q= Entry(b,text = "",font='16')
+                         q.place(x=350,y=260)
+                         py=Button(b,text = 'RESET',command=reset,bd=1) 
+                         py.place(x=100,y=380)
+                         login_btn=Button(b,text = 'SUBMIT',command=submit,bd=1) 
+                         login_btn.place(x=500,y=435)
+                         b.title("INSERT NEW FLIGHT DETAILS")
+                         b.geometry('600x500+300+50')
+                         b.config(bg="black")
+                         b.mainloop()
+                wind.title("WELCOME TO AIRCRAFT MANAGEMENT SYSTEM")
+                wind.geometry("650x550+300+50")
+                wind.resizable(0,0)
+                wind.config(bg='violet red')
+                wind.mainloop()
+
+            def inp():
+                i=Tk()
+                g=open('word.txt','r')
+                h=g.read()
+                lbl_label=Label(i,text=h, justify=LEFT,font=['Algerian','16'])
+                lbl_label.place(x=20,y=100)    
+                i.title("MAIN PAGE")
+                i.resizable(0,0)
+                def back2():
+                    i.destroy()
+                login_btn=Button(i,text = 'BACK',font=['arial',20],command=back2,bd=10,bg='snow') 
+                login_btn.place(x=450,y=400)
+                i.geometry('600x500+300+50')
+                i.config(bg="darkviolet")
+                i.mainloop()
+
+            def license():
+                k=Tk()
+                f=open('LICENSE.txt')
+                j=f.read()
+                lbl_label=Label(k,text=j,justify=LEFT,font=['Lucida calligraphy','14'],bg='lavender')
+                lbl_label.place(x=10,y=20)
+                def back1():
+                    k.destroy()
+                login_btn=Button(k,text = 'BACK',font=['arial',20],command=back1,bd=10,bg='snow') 
+                login_btn.place(x=1000,y=600)
+                k.title("MAIN PAGE")
+                
+                k.geometry('1270x700+0+0')
+                k.resizable(0,0)
+                k.config(bg="deeppink")
+                k.mainloop()
+
+
+            def inp():
+                i=Toplevel()
+                i.state('zoomed')
+                i.grab_set()
+                lbl_label=Text(i,font=['Algerian','16'])
+                lbl_label.pack()
+
+                i.title("MAIN PAGE")
+
+                login_btn=Button(i,text = 'BACK',font=['arial',20],command=lambda: i.withdraw() or i.grab_release(),bd=10,bg='snow') 
+                login_btn.pack(side = 'right')
+                i.config(bg="darkviolet")
+
+                def display_content(mer_or_demer):
+                    lbl_label['state'] = 'normal'
+                    lbl_label.delete("1.0",END)
+                    if mer_or_demer:
+                            with open('MERITS.txt','r') as file_handler:
+                                    x = file_handler.read()
+                                    lbl_label.insert(END,x)
+                                    lbl_label['state'] = 'disabled'
+                    else:
+                            with open('DEMERITS.txt','r') as file_handler:
+                                    x = file_handler.read()
+                                    lbl_label.insert(END,x)
+                                    lbl_label['state'] = 'disabled'
+
+                mer=Button(i,text = 'MERITS',font=['arial',20],command=lambda: display_content(True),bd=10,bg='snow') 
+                mer.pack(side = 'left')
+
+                demer=Button(i,text = 'DEMERITS',font=['arial',20],command=lambda: display_content(False),bd=10,bg='snow') 
+                demer.pack(side = 'left')
+
+                with open('word.txt','r') as file_handler:
+                    x = file_handler.read()
+                    lbl_label.delete("1.0",END)
+                    lbl_label.insert(END,x)
+                    lbl_label['state'] = 'disabled'
+               
+
+                
+            login_btn=Button(o,text = 'NEXT PAGE',font=['arial',15],command=star,bd=7) 
+            login_btn.place(x=250,y=290)
+            ky=Button(o,text="COPYRIGHT",font=['arial',15],command=inp,bd=7)
+            ky.place(x=445,y=150)
+            kyA=Button(o,text="LICENSE",font=['arial',15],command=license,bd=7)
+            kyA.place(x=480,y=440)
+            def web():
+                sor=messagebox.askyesno("Confirm","Do you have Internet connection?")
+                if  sor>0:
+                    ad=messagebox.askokcancel("Opening","Opening 'www.epicflightacademy.com' in google")
+                    if ad>0:
+                        webbrowser.open('https://epicflightacademy.com/airline-pilot-salary/')
+                    else:
+                        return
+                    
+                else:
+                    return
+            kA=Button(o,text="FIND THE FLIGHT",font=['arial',15],command=web,bd=7)
+            kA.place(x=5,y=150)
+            def web1():
+                sac=messagebox.askyesno("Confirm","Is Pilot an Indian?")
+                if sac>0:
+                    sora=messagebox.askyesno("Confirm","Do you have Internet connection?")
+                    if  sora>0:
+                        ada=messagebox.askokcancel("Opening","Opening 'www.findandtrace.com' in google")
+                        if ada>0:
+                            webbrowser.open('https://www.findandtrace.com/')
+                        else:
+                            return
+                    else:
+                        return
+                    
+                else:
+                    return
+                
+    
+            kA=Button(o,text="PILOT PHONE NUMBER\n DETAILS",font=['arial',15],command=web1,bd=7)
+            kA.place(x=5,y=420)
+            o.title("MAIN PAGE")
+            o.resizable(0,0)
+            o.geometry('600x500+300+50')
+            o.config(bg="firebrick1")
+            o.mainloop()
+        if e1.get()=='':
+              tk.messagebox.showinfo(title='Information', message='Password section is empty.Please enter the password sir')
+
+            
+        else:
+            tk.messagebox.showerror(title='Error', message='The password entered is incorrect')
+           
+    c=Canvas(ast,width=700,height=250)
+    c.pack()
+    c.place(x=0,y=185)
+    #a=PhotoImage(file='C:\\Users\\user\\Downloads\\img a.png')
+    #c.create_image(0,0,anchor=NW,image=a)
+    def logi1():
+        if e1.get()=='':
+            messagebox.showwarning("Warning","Password not entered")
+        else:
+            messagebox.showinfo("Information","Password that you had entered is "+" ' "+  e1.get()+" ' ")
+
+        
+
+                                               
+    login_btn56=Button(ast,text = 'SHOW PASSWORD ',command=logi1,bd=10,bg='lemonchiffon') 
+    login_btn56.place(x=10,y=200)
+
+    b=Button(ast,text = 'ENTER',font=['Arial','10'],command=bos,bd=10,bg='lemonchiffon') 
+    b.place(x=425,y=200)
+    ast.geometry('503x440')
+    ast.config(bg="red")
+    ast.resizable(0,0)
+    ast.mainloop()
+
+fnd()
