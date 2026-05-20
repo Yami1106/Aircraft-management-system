@@ -1,42 +1,31 @@
 <div align="center">
 
-<pre>
-╔════════════════════════════════════╗
-║     💻  Aircraft-management-system  💻     ║
-╚════════════════════════════════════╝
-</pre>
+# Aircraft Management System
 
-## Project Repository
+![Stars](https://img.shields.io/github/stars/Yami1106/Aircraft-management-system?style=for-the-badge)
+![License](https://img.shields.io/github/license/Yami1106/Aircraft-management-system?style=for-the-badge)
 
-
+*A software system for managing aircraft records, scheduling, and operations.*
 
 </div>
 
 ---
 
-## About
-
-A Python project repository. See the source code for details.
-
----
-
 ## Features
 
-- See source code for details
+- Aircraft registration and record management
+- Flight scheduling and status tracking
+- CRUD operations with persistent storage
+- CLI / menu-driven interface
 
 ---
 
-## Tech Stack
+## Tech stack
 
-_See source_
-
----
-
-## Author
-
-**Ashish (Yami1106)**
-[GitHub](https://github.com/Yami1106) · [Portfolio](https://yamiportfolio.netlify.app/)
+Refer to repository source for language and dependencies.
 
 ---
 
-*Generated with [Automate_contribution](https://github.com/Yami1106/Automate_contribution)*
+<div align="center">
+<a href="https://github.com/Yami1106">Ashish Sukumar</a>
+</div>
